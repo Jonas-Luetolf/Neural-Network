@@ -8,5 +8,7 @@ except ImportError:
 
 
 class ReLu(ActivationFunction):
-    def __init__(self,function) -> None:
-        super().__init__(function)
+    def __init__(self) -> None:
+        #TODO implement ReLu function
+        #super().__init__(<ReLu function>)
+        raise NotImplementedError

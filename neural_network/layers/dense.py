@@ -8,26 +8,28 @@ except ImportError:
 
 
 class DenseLayer(Layer):
+
     def __init__(self,n_neurons:int,n_inputs:int,n_outputs:int) -> None:
         super().__init__(n_neurons,n_inputs,n_outputs)
     
     def random_init(self)->None:
-        self.weights = np.random.rand(self.n_neurons,self.n_inputs)
-        self.biases = np.random.rand(self.n_neurons,1)
+        self.weights:np.ndarray = np.random.rand(self.n_neurons,self.n_inputs)
+        self.biases:np.ndarray = np.random.rand(self.n_neurons,1)
 
     def forward(self,inputs:np.ndarray)->np.ndarray:
-        self.inputs = inputs
+        self.inputs:np.ndarray = inputs
         return np.dot(self.weights,inputs) + self.biases
     
-    def backward(self,output_grad:float,learning_rate:float):
+    def backward(self,output_grad:np.ndarray,learning_rate:float)->np.ndarray:
         #TODO: Implement backward
-        pass
+        raise NotImplementedError
 
     def load(self)->None:
-        pass
+        #TODO Implement load weights and biases
+        raise NotImplementedError
 
 if __name__ == "__main__":
-    d = DenseLayer(1,1,1)
+    d:DenseLayer = DenseLayer(1,1,1)
     d.random_init()
     print(d.weights)
     print(d.biases)
