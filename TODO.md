@@ -4,3 +4,6 @@
 - [x] ReLu ActivationFunction
 - [x] add Tanh
 - [ ] add Softmax
+- [ ] add tests
+- [ ] add github test workflow
+- [ ] exampels
