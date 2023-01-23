@@ -2,5 +2,5 @@
 - [ ] ActivationFunction backward
 - [ ] DenseLayer backward
 - [x] ReLu ActivationFunction
-- [ ] add Tanh
+- [x] add Tanh
 - [ ] add Softmax
