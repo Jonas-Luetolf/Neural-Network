@@ -10,6 +10,6 @@ class ActivationFunction:
         self.inputs:np.ndarray = inputs
         return self.function(inputs)
 
-    def backward(self,output_grad:np.ndarray)->np.ndarray:
+    def backward(self,output_grad:np.ndarray, learning_rate:float)->np.ndarray:
         #TODO implement backward for ActivationFunction
         raise NotImplementedError

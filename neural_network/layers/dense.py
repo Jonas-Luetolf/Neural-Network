@@ -27,6 +27,10 @@ class DenseLayer(Layer):
     def load(self)->None:
         #TODO Implement load weights and biases
         raise NotImplementedError
+        
+    def save(self,path:str)->None:
+        #TODO Implement save weights and biases
+        raise NotImplementedError
 
 if __name__ == "__main__":
     d:DenseLayer = DenseLayer(1,1,1)
