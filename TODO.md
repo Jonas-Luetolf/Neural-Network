@@ -6,4 +6,6 @@
 - [ ] add Softmax
 - [ ] add tests
 - [ ] add github test workflow
+- [ ] add Loss-Function
+- [ ] add MSE-Loss-Function
 - [ ] exampels
