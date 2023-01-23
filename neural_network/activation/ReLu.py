@@ -9,6 +9,9 @@ except ImportError:
 
 class ReLu(ActivationFunction):
     def __init__(self) -> None:
-        #TODO implement ReLu function
-        #super().__init__(<ReLu function>)
-        raise NotImplementedError
+        super().__init__(lambda x: np.maximum(x,0), lambda x: np.heaviside(x,0))
+
+
+if __name__ == "__main__":
+    r=ReLu()
+    print(r.forward(np.array([[1],[-0.2],[0.3]])))

@@ -2,8 +2,9 @@ from types import FunctionType
 import numpy as np
 
 class ActivationFunction:
-    def __init__(self,function:FunctionType) -> None:
+    def __init__(self,function:FunctionType, function_derivative:FunctionType) -> None:
         self.function:FunctionType = function
+        self.function_derivative:FunctionType = function_derivative
 
     def forward(self,inputs:np.ndarray)->np.ndarray:
         self.inputs:np.ndarray = inputs
