@@ -9,12 +9,12 @@ except ImportError:
 
 class DenseLayer(Layer):
 
-    def __init__(self,n_neurons:int,n_inputs:int,n_outputs:int) -> None:
-        super().__init__(n_neurons,n_inputs,n_outputs)
+    def __init__(self,n_inputs:int,n_outputs:int) -> None:
+        super().__init__(n_inputs,n_outputs)
     
     def random_init(self)->None:
-        self.weights:np.ndarray = np.random.rand(self.n_neurons,self.n_inputs)
-        self.biases:np.ndarray = np.random.rand(self.n_neurons,1)
+        self.weights:np.ndarray = np.random.rand(self.n_outputs,self.n_inputs)
+        self.biases:np.ndarray = np.random.rand(self.n_outputs,1)
 
     def forward(self,inputs:np.ndarray)->np.ndarray:
         self.inputs:np.ndarray = inputs
@@ -33,8 +33,10 @@ class DenseLayer(Layer):
         raise NotImplementedError
 
 if __name__ == "__main__":
-    d:DenseLayer = DenseLayer(1,1,1)
+    d:DenseLayer = DenseLayer(2,2)
     d.random_init()
     print(d.weights)
     print(d.biases)
-    print(d.forward(np.array([1])))
+    
+    print("")
+    print(d.forward(np.array([[1,1],[1,1]])))
