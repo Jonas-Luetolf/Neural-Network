@@ -6,7 +6,7 @@ from neural_network.layers import DenseLayer
 class TestDenseLayer(unittest.TestCase):
 
     def setUp(self):
-        self.d=DenseLayer(1,1)
+        self.d = DenseLayer(1,1)
         self.d.random_init()
     
     def test_dense_init(self):
