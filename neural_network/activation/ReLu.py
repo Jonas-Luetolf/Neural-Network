@@ -14,4 +14,4 @@ class ReLu(ActivationFunction):
 
 if __name__ == "__main__":
     r=ReLu()
-    print(r.forward(np.array([[1],[-0.2],[0.3]])))
+    print(r.forward(np.array([1])))
