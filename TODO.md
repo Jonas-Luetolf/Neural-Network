@@ -1,5 +1,5 @@
 # TODOs
-- [ ] ActivationFunction backward
+- [x] ActivationFunction backward
 - [ ] DenseLayer backward
 
 - [x] ReLu ActivationFunction
