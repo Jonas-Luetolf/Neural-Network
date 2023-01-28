@@ -1,6 +1,6 @@
 # TODOs
 - [x] ActivationFunction backward
-- [ ] DenseLayer backward
+- [x] DenseLayer backward
 
 - [x] ReLu ActivationFunction
 - [x] add Tanh
