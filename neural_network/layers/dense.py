@@ -20,13 +20,14 @@ class DenseLayer(Layer):
         return np.dot(self.weights, inputs) + self.biases
 
     def backward(self, output_grad: np.ndarray, learning_rate: float) -> np.ndarray:
-        weights_grad = output_grad * self.inputs.T
+        weights_grad = np.dot(output_grad, self.inputs.T)
+        inp_grad = np.dot(self.weights.T, output_grad)
 
         # adapt weights and biases
-        self.weights = learning_rate * weights_grad
-        self.biases = learning_rate * output_grad
+        self.weights -= learning_rate * weights_grad
+        self.biases -= learning_rate * output_grad
 
-        return weights_grad.T * output_grad
+        return inp_grad
 
     def load(self) -> None:
         # TODO Implement load weights and biases
