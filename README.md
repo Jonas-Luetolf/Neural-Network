@@ -1,4 +1,4 @@
-# A simpel Neural Network Framework
+# A simple Neural Network Framework
 ## written to understand how neural networks work
 
 **LICENSE: MIT**
