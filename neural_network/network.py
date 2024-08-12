@@ -1,4 +1,5 @@
 import numpy as np
+import h5py
 
 from .loss.loss_function import LossFunction
 from .layers.layer import Layer
@@ -36,3 +37,17 @@ class NeuralNetwork:
                 x = self.forward(x)
                 loss = self.loss_function.loss_prime(x, y)
                 self.backward(loss, lr)
+
+    def save(self, path: str) -> None:
+        with h5py.File(path, 'w') as h5file:
+            for i, layer in enumerate(self.layers):
+                if isinstance(layer, Layer):
+                    layer.save(f'layer_{i}', h5file)
+
+    def load(self, path: str) -> None:
+        with h5py.File(path, 'r') as h5file:
+            for i, layer in enumerate(self.layers):
+                if isinstance(layer, Layer):
+                    group = h5file[f'layer_{i}']
+                    assert isinstance(group, h5py.Group)
+                    layer.load(group)

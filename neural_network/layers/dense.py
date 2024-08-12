@@ -1,4 +1,5 @@
 import numpy as np
+import h5py
 
 try:
     from .layer import Layer
@@ -22,15 +23,17 @@ class DenseLayer(Layer):
     def backward(self, output_grad: np.ndarray, learning_rate: float) -> np.ndarray:
         weights_grad = np.dot(self.inputs.T, output_grad)
         inp_grad = np.dot(output_grad, self.weights.T)
+
         # adapt weights and biases
         self.weights -= learning_rate * weights_grad
         self.biases -= learning_rate * output_grad
         return inp_grad
 
-    def load(self) -> None:
-        # TODO Implement load weights and biases
-        raise NotImplementedError
+    def save(self, group_name: str, h5file: h5py.File) -> None:
+        group = h5file.create_group(group_name)
+        group.create_dataset('weights', data=self.weights)
+        group.create_dataset('biases', data=self.biases)
 
-    def save(self, path: str) -> None:
-        # TODO Implement save weights and biases
-        raise NotImplementedError
+    def load(self, group: h5py.Group) -> None:
+        self.weights = np.array(group['weights'])
+        self.biases = np.array(group['biases'])
