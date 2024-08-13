@@ -1,13 +1,13 @@
-from types import FunctionType
+from collections.abc import Callable
 import numpy as np
 
 
 class ActivationFunction:
     def __init__(
-        self, function: FunctionType, function_derivative: FunctionType
+        self, function: Callable, function_derivative: Callable
     ) -> None:
-        self.function: FunctionType = function
-        self.function_derivative: FunctionType = function_derivative
+        self.function: Callable = function
+        self.function_derivative: Callable = function_derivative
 
     def forward(self, inputs: np.ndarray) -> np.ndarray:
         self.inputs: np.ndarray = inputs
