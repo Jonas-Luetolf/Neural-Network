@@ -31,9 +31,9 @@ class DenseLayer(Layer):
 
     def save(self, group_name: str, h5file: h5py.File) -> None:
         group = h5file.create_group(group_name)
-        group.create_dataset('weights', data=self.weights)
-        group.create_dataset('biases', data=self.biases)
+        group.create_dataset("weights", data=self.weights)
+        group.create_dataset("biases", data=self.biases)
 
     def load(self, group: h5py.Group) -> None:
-        self.weights = np.array(group['weights'])
-        self.biases = np.array(group['biases'])
+        self.weights = np.array(group["weights"])
+        self.biases = np.array(group["biases"])

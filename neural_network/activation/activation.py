@@ -3,9 +3,7 @@ import numpy as np
 
 
 class ActivationFunction:
-    def __init__(
-        self, function: Callable, function_derivative: Callable
-    ) -> None:
+    def __init__(self, function: Callable, function_derivative: Callable) -> None:
         self.function: Callable = function
         self.function_derivative: Callable = function_derivative
 
