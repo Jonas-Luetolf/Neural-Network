@@ -13,16 +13,16 @@ class DenseLayer(Layer):
         super().__init__(n_inputs, n_outputs)
 
     def random_init(self) -> None:
-        self.weights: np.ndarray = np.random.rand(self.n_inputs, self.n_outputs) - 0.5
-        self.biases: np.ndarray = np.random.rand(1, self.n_outputs) - 0.5
+        self.weights: np.ndarray = np.random.rand(self.n_outputs, self.n_inputs) - 0.5
+        self.biases: np.ndarray = np.random.rand(self.n_outputs, 1) - 0.5
 
     def forward(self, inputs: np.ndarray) -> np.ndarray:
         self.inputs: np.ndarray = inputs
-        return np.dot(inputs, self.weights) + self.biases
+        return np.dot(self.weights, inputs) + self.biases
 
     def backward(self, output_grad: np.ndarray, learning_rate: float) -> np.ndarray:
-        weights_grad = np.dot(self.inputs.T, output_grad)
-        inp_grad = np.dot(output_grad, self.weights.T)
+        weights_grad = np.dot(output_grad, self.inputs.T)
+        inp_grad = np.dot(self.weights.T, output_grad)
 
         # adapt weights and biases
         self.weights -= learning_rate * weights_grad
