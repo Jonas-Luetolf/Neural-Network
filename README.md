@@ -1,11 +1,6 @@
 # A simple Neural Network Framework
-## written to understand how neural networks work
-
-**LICENSE: MIT**
-
-## Layers
-### Dense Layer
-
-
-## Activation Functions
-### ReLu
+## Installation
+'''
+git clone https://github.com/Jonas-Luetolf/Neural-Network.git
+pip install -r requirements.txt
+```
